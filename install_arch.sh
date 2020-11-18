@@ -2,6 +2,7 @@
 
 sudo pacman -S \
 # Core functionality
+xorg \
 sddm \
 plasma-meta \
 dolphin \
