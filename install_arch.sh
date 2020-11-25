@@ -1,16 +1,23 @@
 #!/bin/bash
 
-pacman -S xorg plasma-meta dolphin konsole spectacle yakuake fwupd pulseaudio pulseaudio-alsa alsa-firmware alsa-lib alsa-plugins alsa-utils qt-gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly playerctl pulseaudio-bluetooth bluez bluez-libs bluez-utils blueberry cups cups-pdf ghostscript gsfonts libcups system-config-printer tlp powertop avahi nss-mdns ark cryfs dolphin-plugins ffmpegthumbs gwenview kde-gtk-config kde-system-meta okular packagekit-qt5 partitionmanager awesome-terminal-fonts adobe-source-sans-pro-fonts cantarell-fonts noto-fonts ttf-bitstream-vera ttf-dejavu ttf-droid ttf-hack ttf-inconsolata ttf-liberation ttf-roboto ttf-ubuntu-font-family tamsyn-font appstream appstream-qt kcalc kate kdialog kgpg kwalletmanager print-manager kde-system-meta
+####### Base System #######
+pacman -S base-devel yay linux-headers linux-firmware pacman-contrib amd-ucode xdg-utils xdg-users-dirs xf86-video-vesa xorg-server xorg-xinit xf86-input-libinput xf86-video-amdgpu xf86-video-ati xf86-video-fbdev xf86-video-intel xorg-xkill xorg-xrandr xorg-xinput accountsservice smartmontools ldns modemmanager networkmanager networkmanager-openvpn net-tools ntfs-3g nss-mdns usb_modeswitch whois ethtool openconnect openvpn rp-pppoe wireless_tools wpa_supplicant wvdial gnu-netcat iwd linux-atm ndisc6 pptpclient vpnc xl2tpd dialog dnsmasq upower htop python solid mlocate ttf-dejavu gnu-free-fonts ttf-liberation ttf-bitstream-vera ttf-ubuntu-font-family cantarell-fonts noto-fonts noto-fonts-cjk ttf-croscore ttf-carlito ttf-caladea firefox alsa-utils alsa-plugins alsa-firmware glances pulseaudio libopenraw freetype2 gst-libav gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly libdvdcss dosfstools mtools openssh wget bash-completion lsb-release steam tlp inxi adobe-source-sans-pro-fonts
+ 
+systemctl enable networkmanager
+systemctl enable tlp
+systemctl enable avahi-daemon
 
-# Enable display manager
-systemctl enable sddm.service -f
+####### Desktop Environment #######
+pacman -S plasma fwupd python-dbux discover kde-systems-meta kde-utilities-meta gwenview kde-graphics-thumbnailers okular spectacle appstream appstream-qt packagekit packagekit-qt5 kdialog dolphin-plugins
 
-# Enable bluetooth
-systemctl enable bluetooth.service
+systemctl enable sddm
 
-# Enable printing
-systemctl enable org.cups.cupsd.service
-systemctl enable tlp.service
+####### Printing Setup #######
+pacman -S cups cups-filters cups-pdf ghostscript gsfonts foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint foomatic-db-gutenprint-ppds splix
 
-# Enable avahi
-systemctl enable avahi-daemon.service
+systemctl enable org.cups.cupsd
+
+####### Bluetooth Setup #######
+pacman -S bluez bluez-utils pulseaudio-qt bluez-libs
+
+systemctl enable bluetooth
