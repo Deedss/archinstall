@@ -8,7 +8,7 @@ systemctl enable tlp
 systemctl enable avahi-daemon
 
 ####### Desktop Environment #######
-pacman -S --needed plasma fwupd python-dbux discover kde-systems-meta kde-utilities-meta gwenview kde-graphics-thumbnailers okular spectacle appstream appstream-qt packagekit packagekit-qt5 kdialog dolphin-plugins
+pacman -S --needed plasma sddm fwupd python-dbus discover kde-system-meta kde-utilities-meta gwenview kde-graphics-thumbnailers okular spectacle appstream appstream-qt packagekit packagekit-qt5 kdialog dolphin-plugins
 
 systemctl enable sddm
 
