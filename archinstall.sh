@@ -5,7 +5,7 @@ pacman -S --needed base-devel linux-headers linux-firmware pacman-contrib amd-uc
  
 systemctl enable NetworkManager
 systemctl enable tlp
-systemctl enable avahi-daemon
+### systemctl enable avahi-daemon
 
 ####### Desktop Environment #######
 pacman -S --needed plasma sddm fwupd python-dbus discover kde-system-meta kde-utilities-meta gwenview kde-graphics-thumbnailers okular spectacle appstream appstream-qt packagekit packagekit-qt5 kdialog dolphin-plugins
