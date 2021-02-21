@@ -5,7 +5,7 @@
 - mkfs.fat -F32 /dev/sda1
 - mkswap /dev/sda2
 - swapon /dev/sda2
-- mkfs.ext4 /dev/sda3
+- mkfs.ext4/btrfs /dev/sda3
 - mount /dev/sda3 /mnt
 - mkdir /mnt/boot
 - mkdir /mnt/boot/efi
