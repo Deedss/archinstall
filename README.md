@@ -26,10 +26,13 @@
 - pacman -S networkmanager
 - systemctl enable NetworkManager
 - passwd
+- useradd --create-home "name"
+- passwd "name"
+- usermod -aG wheel "name"
+- visudo -> uncomment %wheel
 - pacman -S grub efibootmgr
 - grub-install --target=x86_64-efi --efi-directory=/boot/efi
 - grub-mkconfig -o /boot/grub/grub.cfg
 - exit
 - umount -R /mnt
 - reboot
-
