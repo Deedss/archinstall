@@ -35,19 +35,16 @@
 - #grub-mkconfig -o /boot/grub/grub.cfg
 - bootctl --path=/boot install
 - /boot/loader/loader.conf
-##############
+    - default arch
+    - timeout 1
+    - editor 0
 
-default arch
-timeout 1
-editor 0
-
+- blkid -s PARTUUID -o value /dev/sda2
 - /boot/loader/entries/arch.conf
-##################
-blkid -s PARTUUID -o value /dev/sda2
-title   Arch Linux
-linux   /vmlinuz-linux
-initrd  /initramfs-linux.img
-options root=PARTUUID=66e3f67d-f59a-4086-acdd-a6e248a3ee80 rw
+    - title   Arch Linux
+    - linux   /vmlinuz-linux
+    - initrd  /initramfs-linux.img
+    - options root=PARTUUID=66e3f67d-f59a-4086-acdd-a6e248a3ee80 rw
 
 - exit
 - umount -R /mnt
